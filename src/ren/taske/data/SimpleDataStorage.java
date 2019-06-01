@@ -106,6 +106,14 @@ public class SimpleDataStorage {
 	public void set(String name, String value) {
 		data.put(name, value);
 	}
+
+	public boolean has(String name) {
+		return data.containsKey(name);
+	}
+	
+	public void del(String name) {
+		set(name, null);
+	}
 	
 	/* *********************************************************
 	 * 
