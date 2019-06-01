@@ -18,6 +18,7 @@ import static ren.taske.data.util.ParseUtil.parseShort;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.util.HashMap;
@@ -36,8 +37,30 @@ public class SimpleDataStorage {
 	public SimpleDataStorage(File datafile) {
 		this.datafile = datafile;
 		this.data = new HashMap<String, String>();
+		check();
 		load();
 		save();
+	}
+	
+	void check() {
+		
+		if(datafile == null) {
+			throw new NullPointerException("datafile");
+		}
+		
+		File parent = datafile.getParentFile();
+		if(!parent.exists()) {
+			parent.mkdirs();
+		}
+		
+		if(!datafile.exists()) {
+			try {
+				datafile.createNewFile();
+			} catch(IOException e) {
+				System.err.println("Cannot create "+datafile.toString());
+			}
+		}
+		
 	}
 	
 	void load() {
