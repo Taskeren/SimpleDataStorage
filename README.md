@@ -29,7 +29,12 @@ data.setInteger("count", count);
 
 // 消除数据
 // "count" 代表键值，每个实例（实例对应的文件）中只允许存在一个同名键值
+data.del("count");
 data.set("count", null);
+
+// 读取是否有数据
+// "count" 代表键值，每个实例（实例对应的文件）中只允许存在一个同名键值
+boolean b = data.has("count");
 
 // 存储数据
 // 修改数据后仅仅保存在内存中，只有save()后才会存入服务器中
