@@ -138,6 +138,10 @@ public class SimpleDataStorage {
 		set(name, null);
 	}
 	
+	public void setDefault(String name, String value) {
+		if(!has(name)) set(name, value);
+	}
+	
 	/* *********************************************************
 	 * 
 	 * Data Getters
@@ -204,6 +208,36 @@ public class SimpleDataStorage {
 	
 	public void setBoolean(String name, boolean value) {
 		set(name, Boolean.toString(value));
+	}
+	
+	/* *********************************************************
+	 * 
+	 * Data Default Setters
+	 * 
+	 * *********************************************************/
+	
+	public void setDefault(String name, int value) {
+		setDefault(name, Integer.toString(value));
+	}
+	
+	public void setDefault(String name, double value) {
+		setDefault(name, Double.toString(value));
+	}
+	
+	public void setDefault(String name, float value) {
+		setDefault(name, Float.toString(value));
+	}
+	
+	public void setDefault(String name, long value) {
+		setDefault(name, Long.toString(value));
+	}
+	
+	public void setDefault(String name, short value) {
+		setDefault(name, Short.toString(value));
+	}
+	
+	public void setDefault(String name, boolean value) {
+		setDefault(name, Boolean.toString(value));
 	}
 	
 }
